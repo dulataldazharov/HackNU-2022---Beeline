@@ -1,0 +1,88 @@
+{
+    "non_trivial_cols_deps": [
+        "2gis_test.csv.id_2",
+        "polygons_test.csv.DIAG_SIZE",
+        "2gis_test.csv.city_name",
+        "polygons_test.csv.CITY",
+        "2gis_test.csv.lat",
+        "polygons_test.csv.POLYGON_WKT",
+        "2gis_test.csv.lon",
+        "2gis_test.csv.name"
+    ],
+    "non_trivial_data_sources": [
+        "2gis_test.csv",
+        "polygons_test.csv"
+    ],
+    "subcategory_list": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.subcategory_list"
+        ]
+    },
+    "lat": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.lat"
+        ]
+    },
+    "ZID_ID": {
+        "data_sources": [
+            "polygons_test.csv"
+        ],
+        "cols_deps": [
+            "polygons_test.csv.ZID_ID"
+        ]
+    },
+    "company_name": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.name"
+        ]
+    },
+    "ORG_ID": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.id_2"
+        ]
+    },
+    "ORG_SUBCAT": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.name"
+        ]
+    },
+    "lon": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.lon"
+        ]
+    },
+    "city_name": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.city_name"
+        ]
+    },
+    "description": {
+        "data_sources": [
+            "2gis_test.csv"
+        ],
+        "cols_deps": [
+            "2gis_test.csv.description"
+        ]
+    }
+}

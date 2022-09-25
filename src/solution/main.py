@@ -1,7 +1,6 @@
 import webbrowser
 import json
 from parse_plan import parse_plan
-from urllib.parse import urlencode
 import click
 
 from parse_idxs import find_identifiers
