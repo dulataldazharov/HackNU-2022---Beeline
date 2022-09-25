@@ -1,0 +1,550 @@
+{
+    "non_trivial_cols_deps": [
+        "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.ROWNUMBER_CONTROL",
+        "TIME_KEY=2018-11-01.PRIORITY_TAC",
+        "vendor_telprice.csv.PRIORITY_TAC",
+        "dim_device_type.csv.TAC",
+        "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.TAC",
+        "MONTH_KEY=2019-12-01.TAC"
+    ],
+    "non_trivial_data_sources": [
+        "vendor_telprice.csv",
+        "dim_device_type.csv",
+        "TIME_KEY=2018-11-01",
+        "MONTH_KEY=2019-12-01",
+        "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+    ],
+    "TARGET_PRICE": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01",
+            "vendor_telprice.csv"
+        ],
+        "cols_deps": [
+            "vendor_telprice.csv.PRICE",
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "GPRS_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.GPRS_IND"
+        ]
+    },
+    "IS_GOOGLE": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "avg_avito_price_3m": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01"
+        ],
+        "cols_deps": [
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "AVG_PRICE": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01",
+            "vendor_telprice.csv"
+        ],
+        "cols_deps": [
+            "vendor_telprice.csv.PRICE",
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "PERC_ACTIVE_USERS": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.ACTIVE_IND",
+            "TIME_KEY=2018-11-01.DW_STATUS_KEY"
+        ]
+    },
+    "LTE_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.LTE_IND"
+        ]
+    },
+    "AVG_MIN_BALANCE": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.MIN_BALANCE"
+        ]
+    },
+    "PRICE_VENDOR_OLD": {
+        "data_sources": [
+            "vendor_telprice.csv"
+        ],
+        "cols_deps": [
+            "vendor_telprice.csv.PRICE"
+        ]
+    },
+    "GLONASS_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.GLONASS_IND"
+        ]
+    },
+    "GPS_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.GPS_IND"
+        ]
+    },
+    "AVG_ROAM_MIN": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.TOTAL_ROAM_MIN"
+        ]
+    },
+    "PERC_USERS_OVERALL": {
+        "data_sources": [],
+        "cols_deps": []
+    },
+    "IS_NOKIA": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "IS_HUAWEI": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "AVG_PRICE_3M": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01",
+            "vendor_telprice.csv"
+        ],
+        "cols_deps": [
+            "vendor_telprice.csv.PRICE",
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "CAMERA_RESOLUTION": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.CAMERA_RESOLUTION"
+        ]
+    },
+    "AVG_BALANCE": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.AVG_BALANCE"
+        ]
+    },
+    "IS_APPLE": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "IS_MEIZU": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "CAMERA_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.CAMERA_IND"
+        ]
+    },
+    "FUNCTIONALITY_CLASS": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.FUNCTIONALITY_CLASS"
+        ]
+    },
+    "AVG_CNT_CALL_IN": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.CNT_CALL_IN"
+        ]
+    },
+    "SUM_COUNT_DEVICE_CHANGES": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.COUNT_DEVICE_CHANGES"
+        ]
+    },
+    "IS_SAMSUNG": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "AVG_COUNT_PERIODS_POSIT_REV_12M": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.COUNT_PERIODS_POSIT_REV_12M"
+        ]
+    },
+    "EDGE_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.EDGE_IND"
+        ]
+    },
+    "NOT_NULL_PRICE_AMT_AVITO": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01"
+        ],
+        "cols_deps": [
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "AVG_TOTAL_DATA_VOLUME": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.TOTAL_DATA_VOLUME"
+        ]
+    },
+    "AVG_COUNT_DEVICE_CHANGES": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.COUNT_DEVICE_CHANGES"
+        ]
+    },
+    "avg_avito_price_1m": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01"
+        ],
+        "cols_deps": [
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "AVG_CNT_SMS_OUT": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.CNT_SMS_OUT"
+        ]
+    },
+    "AVG_UNIC_CTN_CPA": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.UNIC_CTN_CPA"
+        ]
+    },
+    "AVG_BLOCK_DAYS_COUNT": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.BLOCK_DAYS_COUNT"
+        ]
+    },
+    "FIRST_DISP_TYPE": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.FIRST_DISP_TYPE"
+        ]
+    },
+    "WEIGHT": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.WEIGHT"
+        ]
+    },
+    "RAM_CAPACITY": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.RAM_CAPACITY"
+        ]
+    },
+    "AVG_CNT_CALL_OUT": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.CNT_CALL_OUT"
+        ]
+    },
+    "BRAND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "AVG_VOICE_OUT_DURATION": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.VOICE_OUT_DURATION"
+        ]
+    },
+    "A_GPS_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.A_GPS_IND"
+        ]
+    },
+    "AVG_PRICE_3M_AVITO": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01"
+        ],
+        "cols_deps": [
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "AVG_VOICE_IN_DURATION": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.VOICE_IN_DURATION"
+        ]
+    },
+    "DEVICE_TYPE": {
+        "data_sources": [
+            "dim_device_type.csv"
+        ],
+        "cols_deps": [
+            "dim_device_type.csv.DEVICE_TYPE"
+        ]
+    },
+    "ROM_CAPACITY": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.ROM_CAPACITY"
+        ]
+    },
+    "TAC": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.PRIORITY_TAC"
+        ]
+    },
+    "AVG_MAX_BALANCE": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.MAX_BALANCE"
+        ]
+    },
+    "TOUCHSCREEN_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.TOUCHSCREEN_IND"
+        ]
+    },
+    "RATIO_ACTIVE_ALL": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.ACTIVE_IND",
+            "TIME_KEY=2018-11-01.DW_STATUS_KEY"
+        ]
+    },
+    "BLUETOOTH_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BLUETOOTH_IND"
+        ]
+    },
+    "avg_avito_price_2m": {
+        "data_sources": [
+            "MONTH_KEY=2019-12-01"
+        ],
+        "cols_deps": [
+            "MONTH_KEY=2019-12-01.price_rub_to_kzt"
+        ]
+    },
+    "MONTH_KEY": {
+        "data_sources": [],
+        "cols_deps": []
+    },
+    "IS_XIAOMI": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "LT_DEVICE": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.LAUNCH"
+        ]
+    },
+    "AVG_SMS_SHORT_NUM": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.SMS_SHORT_NUM"
+        ]
+    },
+    "MEMORY_CARD_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.MEMORY_CARD_IND"
+        ]
+    },
+    "MULTISIM_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.TWO_SIM_IND"
+        ]
+    },
+    "IS_EXPENSIVE": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.BRAND"
+        ]
+    },
+    "OS": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.OS"
+        ]
+    },
+    "FIRST_DISP_DIAG": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.FIRST_DISP_DIAG"
+        ]
+    },
+    "AVG_CNT_SMS_IN": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.CNT_SMS_IN"
+        ]
+    },
+    "AVG_STD_BALANCE": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.STD_BALANCE"
+        ]
+    },
+    "IND_3G": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.IND_3G"
+        ]
+    },
+    "CNT_ACTIVE_USERS": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.ACTIVE_IND",
+            "TIME_KEY=2018-11-01.DW_STATUS_KEY"
+        ]
+    },
+    "AVG_ARPU_3M": {
+        "data_sources": [
+            "TIME_KEY=2018-11-01"
+        ],
+        "cols_deps": [
+            "TIME_KEY=2018-11-01.AVG_ARPU_3M"
+        ]
+    },
+    "CNT_USERS_OVERALL": {
+        "data_sources": [],
+        "cols_deps": []
+    },
+    "WLAN_IND": {
+        "data_sources": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet"
+        ],
+        "cols_deps": [
+            "part-00000-282632e1-88bd-4b32-a92e-6bad7d3ae770-c000.snappy.parquet.WLAN_IND"
+        ]
+    }
+}
