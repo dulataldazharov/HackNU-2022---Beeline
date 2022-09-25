@@ -19,7 +19,14 @@ In order to run jupyter notebooks with pre-installed pyspark locally with docker
 2. Run container 
     ```
     docker run -it -p 8888:8888 nu_hackathon
+
     ```
+3. To run python script, first install dependencies:
+    pip install --upgrade pip ipython ipykernel
+    ipython kernel install --name "python3" --user
+
+4. To run the script:
+    python3 main.py {path_to_file} --mode={explain | script}
 
 ## Problem statement
 
