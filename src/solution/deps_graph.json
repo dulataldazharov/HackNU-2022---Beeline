@@ -1,121 +1,77 @@
 {
     "non_trivial_cols_deps": [
-        "second_dataset.csv.ACTUAL_CALL_DURATION_SEC",
-        "second_dataset.csv.TERM_PARENT_OPERATOR_CODE",
-        "second_dataset.csv.CALL_TYPE_CODE",
-        "second_dataset.csv.CALL_DIRECTION_IND",
-        "second_dataset.csv.CHARGE_AMT",
-        "second_dataset.csv.SRC",
-        "second_dataset.csv.CONNECTION_TYPE_KEY",
-        "second_dataset.csv.CALLED_NUM",
-        "second_dataset.csv.COUNTED_CDR_IND",
-        "second_dataset.csv.ORIG_PARENT_OPERATOR_CODE",
-        "second_dataset.csv.CALL_START_TIME",
-        "second_dataset.csv.SYSTEM_ID",
-        "second_dataset.csv.NUMBER_ID",
-        "second_dataset.csv.CALLING_NUM"
+        "first_dataset.csv.ID",
+        "first_dataset.csv.SERIAL_NUM"
     ],
     "non_trivial_data_sources": [
-        "second_dataset.csv"
+        "first_dataset.csv"
     ],
-    "avg_durat_in": {
+    "MAJOR_SERIAL_NUM_1M": {
         "data_sources": [
-            "second_dataset.csv"
+            "first_dataset.csv"
         ],
         "cols_deps": [
-            "second_dataset.csv.ACTUAL_CALL_DURATION_SEC"
+            "first_dataset.csv.SERIAL_NUM"
         ]
     },
-    "TIME_KEY": {
+    "NUM_OF_CALLS_MONTHLY": {
         "data_sources": [
-            "second_dataset.csv"
+            "first_dataset.csv"
         ],
         "cols_deps": [
-            "second_dataset.csv.CALL_START_TIME"
+            "first_dataset.csv.NUM_OF_CALLS"
         ]
     },
-    "sum_durat_out": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.ACTUAL_CALL_DURATION_SEC"
-        ]
-    },
-    "SYSTEM_ID": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.SYSTEM_ID"
-        ]
-    },
-    "CONTACT": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.CALLED_NUM"
-        ]
-    },
-    "NUMBER_ID": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.NUMBER_ID"
-        ]
-    },
-    "sum_durat": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.ACTUAL_CALL_DURATION_SEC"
-        ]
-    },
-    "sum_durat_in": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.ACTUAL_CALL_DURATION_SEC"
-        ]
-    },
-    "count": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.CALLED_NUM"
-        ]
-    },
-    "avg_durat_out": {
-        "data_sources": [
-            "second_dataset.csv"
-        ],
-        "cols_deps": [
-            "second_dataset.csv.ACTUAL_CALL_DURATION_SEC"
-        ]
-    },
-    "count_out": {
+    "MONTH_KEY": {
         "data_sources": [],
         "cols_deps": []
     },
-    "count_in": {
-        "data_sources": [],
-        "cols_deps": []
-    },
-    "RowNum": {
+    "LAST_SERIAL_NUM_MONTHLY": {
         "data_sources": [
-            "second_dataset.csv"
+            "first_dataset.csv"
         ],
         "cols_deps": [
-            "second_dataset.csv.ACTUAL_CALL_DURATION_SEC",
-            "second_dataset.csv.CALLED_NUM",
-            "second_dataset.csv.CALL_START_TIME",
-            "second_dataset.csv.SYSTEM_ID",
-            "second_dataset.csv.NUMBER_ID"
+            "first_dataset.csv.SERIAL_NUM"
+        ]
+    },
+    "FIRST_SERIAL_NUM_MONTHLY": {
+        "data_sources": [
+            "first_dataset.csv"
+        ],
+        "cols_deps": [
+            "first_dataset.csv.SERIAL_NUM"
+        ]
+    },
+    "SERIAL_NUM_ON_SUBS_MONTHLY": {
+        "data_sources": [
+            "first_dataset.csv"
+        ],
+        "cols_deps": [
+            "first_dataset.csv.SERIAL_NUM"
+        ]
+    },
+    "ID": {
+        "data_sources": [
+            "first_dataset.csv"
+        ],
+        "cols_deps": [
+            "first_dataset.csv.ID"
+        ]
+    },
+    "CALL_DURATION_MIN_MONTHLY": {
+        "data_sources": [
+            "first_dataset.csv"
+        ],
+        "cols_deps": [
+            "first_dataset.csv.CALL_DURATION_MIN"
+        ]
+    },
+    "TRAFFIC_LTE_MONTHLY": {
+        "data_sources": [
+            "first_dataset.csv"
+        ],
+        "cols_deps": [
+            "first_dataset.csv.TRAFFIC_LTE"
         ]
     }
 }

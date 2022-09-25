@@ -149,10 +149,6 @@ def run(file_path, mode):
     json_file.write(pretty_json)
     json_file.close()
     
-    json_file2 = open("deps_graph2.json", "w")
-    json_file2.write(urlencode(pretty_json))
-    json_file2.close()
-    
     webbrowser.open_new_tab(URL)
 
 
