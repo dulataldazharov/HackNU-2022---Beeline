@@ -1,0 +1,155 @@
+== Physical Plan ==
+AdaptiveSparkPlan (25)
++- Project (24)
+   +- BroadcastHashJoin Inner BuildRight (23)
+      :- SortAggregate (11)
+      :  +- Sort (10)
+      :     +- Exchange (9)
+      :        +- SortAggregate (8)
+      :           +- SortAggregate (7)
+      :              +- Sort (6)
+      :                 +- Exchange (5)
+      :                    +- SortAggregate (4)
+      :                       +- Sort (3)
+      :                          +- Filter (2)
+      :                             +- Scan csv  (1)
+      +- BroadcastExchange (22)
+         +- Project (21)
+            +- Filter (20)
+               +- Window (19)
+                  +- Sort (18)
+                     +- Exchange (17)
+                        +- HashAggregate (16)
+                           +- Exchange (15)
+                              +- HashAggregate (14)
+                                 +- Filter (13)
+                                    +- Scan csv  (12)
+
+
+(1) Scan csv 
+Output [5]: [ID#943, SERIAL_NUM#944, CALL_DURATION_MIN#945, NUM_OF_CALLS#946, TRAFFIC_LTE#947]
+Batched: false
+Location: InMemoryFileIndex [file:/home/dulat/Desktop/nu-hackathon/data/first_dataset.csv]
+PushedFilters: [IsNotNull(ID)]
+ReadSchema: struct<ID:string,SERIAL_NUM:string,CALL_DURATION_MIN:string,NUM_OF_CALLS:string,TRAFFIC_LTE:string>
+
+(2) Filter
+Input [5]: [ID#943, SERIAL_NUM#944, CALL_DURATION_MIN#945, NUM_OF_CALLS#946, TRAFFIC_LTE#947]
+Condition : isnotnull(ID#943)
+
+(3) Sort
+Input [5]: [ID#943, SERIAL_NUM#944, CALL_DURATION_MIN#945, NUM_OF_CALLS#946, TRAFFIC_LTE#947]
+Arguments: [ID#943 ASC NULLS FIRST, SERIAL_NUM#944 ASC NULLS FIRST], false, 0
+
+(4) SortAggregate
+Input [5]: [ID#943, SERIAL_NUM#944, CALL_DURATION_MIN#945, NUM_OF_CALLS#946, TRAFFIC_LTE#947]
+Keys [2]: [ID#943, SERIAL_NUM#944]
+Functions [5]: [partial_sum(cast(CALL_DURATION_MIN#945 as double)), partial_sum(cast(NUM_OF_CALLS#946 as double)), partial_sum(cast(TRAFFIC_LTE#947 as double)), partial_first(SERIAL_NUM#944, false), partial_last(SERIAL_NUM#944, false)]
+Aggregate Attributes [5]: [sum(cast(CALL_DURATION_MIN#945 as double))#995, sum(cast(NUM_OF_CALLS#946 as double))#997, sum(cast(TRAFFIC_LTE#947 as double))#999, first(SERIAL_NUM#944)()#1002, last(SERIAL_NUM#944)()#1004]
+Results [9]: [ID#943, SERIAL_NUM#944, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053]
+
+(5) Exchange
+Input [9]: [ID#943, SERIAL_NUM#944, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053]
+Arguments: hashpartitioning(ID#943, SERIAL_NUM#944, 200), ENSURE_REQUIREMENTS, [id=#810]
+
+(6) Sort
+Input [9]: [ID#943, SERIAL_NUM#944, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053]
+Arguments: [ID#943 ASC NULLS FIRST, SERIAL_NUM#944 ASC NULLS FIRST], false, 0
+
+(7) SortAggregate
+Input [9]: [ID#943, SERIAL_NUM#944, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053]
+Keys [2]: [ID#943, SERIAL_NUM#944]
+Functions [5]: [merge_sum(cast(CALL_DURATION_MIN#945 as double)), merge_sum(cast(NUM_OF_CALLS#946 as double)), merge_sum(cast(TRAFFIC_LTE#947 as double)), merge_first(SERIAL_NUM#944, false), merge_last(SERIAL_NUM#944, false)]
+Aggregate Attributes [5]: [sum(cast(CALL_DURATION_MIN#945 as double))#995, sum(cast(NUM_OF_CALLS#946 as double))#997, sum(cast(TRAFFIC_LTE#947 as double))#999, first(SERIAL_NUM#944)()#1002, last(SERIAL_NUM#944)()#1004]
+Results [9]: [ID#943, SERIAL_NUM#944, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053]
+
+(8) SortAggregate
+Input [9]: [ID#943, SERIAL_NUM#944, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053]
+Keys [1]: [ID#943]
+Functions [6]: [merge_sum(cast(CALL_DURATION_MIN#945 as double)), merge_sum(cast(NUM_OF_CALLS#946 as double)), merge_sum(cast(TRAFFIC_LTE#947 as double)), merge_first(SERIAL_NUM#944, false), merge_last(SERIAL_NUM#944, false), partial_count(distinct SERIAL_NUM#944)]
+Aggregate Attributes [6]: [sum(cast(CALL_DURATION_MIN#945 as double))#995, sum(cast(NUM_OF_CALLS#946 as double))#997, sum(cast(TRAFFIC_LTE#947 as double))#999, first(SERIAL_NUM#944)()#1002, last(SERIAL_NUM#944)()#1004, count(SERIAL_NUM#944)#1006L]
+Results [9]: [ID#943, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053, count#1056L]
+
+(9) Exchange
+Input [9]: [ID#943, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053, count#1056L]
+Arguments: hashpartitioning(ID#943, 200), ENSURE_REQUIREMENTS, [id=#815]
+
+(10) Sort
+Input [9]: [ID#943, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053, count#1056L]
+Arguments: [ID#943 ASC NULLS FIRST], false, 0
+
+(11) SortAggregate
+Input [9]: [ID#943, sum#1041, sum#1043, sum#1045, first#1048, valueSet#1049, last#1052, valueSet#1053, count#1056L]
+Keys [1]: [ID#943]
+Functions [6]: [sum(cast(CALL_DURATION_MIN#945 as double)), sum(cast(NUM_OF_CALLS#946 as double)), sum(cast(TRAFFIC_LTE#947 as double)), first(SERIAL_NUM#944, false), last(SERIAL_NUM#944, false), count(distinct SERIAL_NUM#944)]
+Aggregate Attributes [6]: [sum(cast(CALL_DURATION_MIN#945 as double))#995, sum(cast(NUM_OF_CALLS#946 as double))#997, sum(cast(TRAFFIC_LTE#947 as double))#999, first(SERIAL_NUM#944)()#1002, last(SERIAL_NUM#944)()#1004, count(SERIAL_NUM#944)#1006L]
+Results [7]: [ID#943, sum(cast(CALL_DURATION_MIN#945 as double))#995 AS CALL_DURATION_MIN_MONTHLY#996, sum(cast(NUM_OF_CALLS#946 as double))#997 AS NUM_OF_CALLS_MONTHLY#998, sum(cast(TRAFFIC_LTE#947 as double))#999 AS TRAFFIC_LTE_MONTHLY#1000, count(SERIAL_NUM#944)#1006L AS SERIAL_NUM_ON_SUBS_MONTHLY#1001L, first(SERIAL_NUM#944)()#1002 AS FIRST_SERIAL_NUM_MONTHLY#1003, last(SERIAL_NUM#944)()#1004 AS LAST_SERIAL_NUM_MONTHLY#1005]
+
+(12) Scan csv 
+Output [2]: [ID#1024, SERIAL_NUM#1025]
+Batched: false
+Location: InMemoryFileIndex [file:/home/dulat/Desktop/nu-hackathon/data/first_dataset.csv]
+PushedFilters: [IsNotNull(ID)]
+ReadSchema: struct<ID:string,SERIAL_NUM:string>
+
+(13) Filter
+Input [2]: [ID#1024, SERIAL_NUM#1025]
+Condition : isnotnull(ID#1024)
+
+(14) HashAggregate
+Input [2]: [ID#1024, SERIAL_NUM#1025]
+Keys [2]: [ID#1024, SERIAL_NUM#1025]
+Functions [1]: [partial_count(SERIAL_NUM#1025)]
+Aggregate Attributes [1]: [count#1058L]
+Results [3]: [ID#1024, SERIAL_NUM#1025, count#1059L]
+
+(15) Exchange
+Input [3]: [ID#1024, SERIAL_NUM#1025, count#1059L]
+Arguments: hashpartitioning(ID#1024, SERIAL_NUM#1025, 200), ENSURE_REQUIREMENTS, [id=#818]
+
+(16) HashAggregate
+Input [3]: [ID#1024, SERIAL_NUM#1025, count#1059L]
+Keys [2]: [ID#1024, SERIAL_NUM#1025]
+Functions [1]: [count(SERIAL_NUM#1025)]
+Aggregate Attributes [1]: [count(SERIAL_NUM#1025)#976L]
+Results [3]: [ID#1024, SERIAL_NUM#1025, count(SERIAL_NUM#1025)#976L AS count_SERIAL_NUM#975L]
+
+(17) Exchange
+Input [3]: [ID#1024, SERIAL_NUM#1025, count_SERIAL_NUM#975L]
+Arguments: hashpartitioning(ID#1024, 200), ENSURE_REQUIREMENTS, [id=#821]
+
+(18) Sort
+Input [3]: [ID#1024, SERIAL_NUM#1025, count_SERIAL_NUM#975L]
+Arguments: [ID#1024 ASC NULLS FIRST, ID#1024 ASC NULLS FIRST, count_SERIAL_NUM#975L DESC NULLS LAST], false, 0
+
+(19) Window
+Input [3]: [ID#1024, SERIAL_NUM#1025, count_SERIAL_NUM#975L]
+Arguments: [row_number() windowspecdefinition(ID#1024, ID#1024 ASC NULLS FIRST, count_SERIAL_NUM#975L DESC NULLS LAST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS RowNum#980], [ID#1024], [ID#1024 ASC NULLS FIRST, count_SERIAL_NUM#975L DESC NULLS LAST]
+
+(20) Filter
+Input [4]: [ID#1024, SERIAL_NUM#1025, count_SERIAL_NUM#975L, RowNum#980]
+Condition : (RowNum#980 = 1)
+
+(21) Project
+Output [2]: [ID#1024, SERIAL_NUM#1025 AS MAJOR_SERIAL_NUM_1M#986]
+Input [4]: [ID#1024, SERIAL_NUM#1025, count_SERIAL_NUM#975L, RowNum#980]
+
+(22) BroadcastExchange
+Input [2]: [ID#1024, MAJOR_SERIAL_NUM_1M#986]
+Arguments: HashedRelationBroadcastMode(List(input[0, string, true]),false), [id=#827]
+
+(23) BroadcastHashJoin
+Left keys [1]: [ID#943]
+Right keys [1]: [ID#1024]
+Join condition: None
+
+(24) Project
+Output [9]: [ID#943, CALL_DURATION_MIN_MONTHLY#996, NUM_OF_CALLS_MONTHLY#998, TRAFFIC_LTE_MONTHLY#1000, SERIAL_NUM_ON_SUBS_MONTHLY#1001L, FIRST_SERIAL_NUM_MONTHLY#1003, LAST_SERIAL_NUM_MONTHLY#1005, 202208 AS MONTH_KEY#1014, MAJOR_SERIAL_NUM_1M#986]
+Input [9]: [ID#943, CALL_DURATION_MIN_MONTHLY#996, NUM_OF_CALLS_MONTHLY#998, TRAFFIC_LTE_MONTHLY#1000, SERIAL_NUM_ON_SUBS_MONTHLY#1001L, FIRST_SERIAL_NUM_MONTHLY#1003, LAST_SERIAL_NUM_MONTHLY#1005, ID#1024, MAJOR_SERIAL_NUM_1M#986]
+
+(25) AdaptiveSparkPlan
+Output [9]: [ID#943, CALL_DURATION_MIN_MONTHLY#996, NUM_OF_CALLS_MONTHLY#998, TRAFFIC_LTE_MONTHLY#1000, SERIAL_NUM_ON_SUBS_MONTHLY#1001L, FIRST_SERIAL_NUM_MONTHLY#1003, LAST_SERIAL_NUM_MONTHLY#1005, MONTH_KEY#1014, MAJOR_SERIAL_NUM_1M#986]
+Arguments: isFinalPlan=false
+
+
+
