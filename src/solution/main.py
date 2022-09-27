@@ -44,6 +44,8 @@ def add_as_clause_dependency(line: str):
             parent_name = find_identifiers(line[i:], True)
             if parent_name is None:
                 continue
+            if not(line[i+4:].strip().startswith(parent_name)):
+                continue
             left = i
             bracket_depth = 0
             while not(left < 1 or (bracket_depth == 0 and line[left] in [',', '['])):
